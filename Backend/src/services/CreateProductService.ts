@@ -3,6 +3,7 @@ import { ProductsRepositories } from "../repositories/ProductsRepositories";
 
 interface IProductRequest {
   name: string;
+  image: string;
   price: number;
   discount?: number;
   category: string;
@@ -11,7 +12,7 @@ interface IProductRequest {
 }
 
 class CreateProductService {
-  async execute({ name, price, discount, category, description, amount}: IProductRequest ) {
+  async execute({ name, image, price, discount, category, description, amount}: IProductRequest ) {
     const productsRepository = getCustomRepository(ProductsRepositories);
 
     if(!name) {
@@ -28,6 +29,7 @@ class CreateProductService {
 
     const product = productsRepository.create({
       name,
+      image,
       price,
       discount,
       category,
