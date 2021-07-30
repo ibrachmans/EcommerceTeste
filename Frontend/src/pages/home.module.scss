@@ -1,0 +1,64 @@
+.mainContainer {
+  margin: 10rem;
+}
+
+.contentContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  border: 1px solid #dbdbe2;
+}
+
+.productFound {
+  display: flex;
+  height: 1.8rem;
+}
+
+.underline {
+  display: flex;
+  align-self: flex-start;
+  max-width: 15rem;
+  height: 0.3rem;
+  margin-bottom: 2rem;
+  background: var(--underline);
+}
+
+.productImages {
+  max-width: 25%;
+}
+
+.images {
+  max-width: 100%;
+}
+
+.footerContainer {
+  display: flex;
+  align-items: center;
+  margin: 10rem;
+}
+
+.productNumber {
+  
+}
+
+.productPagination {
+  margin-left: auto;
+}
+
+.searchTitleContainer {
+  height: 5rem;
+  border: 2px solid #b8b8b8;
+  background: #dbdbdb;
+
+  h1 { 
+    color: var(--text);
+  }
+}
+
+.searchTitleContent {
+  height: 5rem;
+  margin: 0 auto;
+  padding: 0 2rem;
+
+  display: flex;
+  align-items: center;
+}
