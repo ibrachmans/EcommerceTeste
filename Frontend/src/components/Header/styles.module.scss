@@ -15,3 +15,56 @@
   display: flex;
   align-items: center;
 }
+
+.searchBarContainer {
+  display: flex;
+  margin-left: auto;
+  padding: 0.2rem;
+  border: 2px solid #e6e6e6;
+  border-radius: 15px;
+
+  span {
+    display: flex;
+    align-self: center;
+    margin-left: 1rem;
+    font-size: 1.1rem;
+    color: var(--text);
+  }
+
+  button {
+    display: flex;
+    align-self: center;
+    margin-right: 1rem;
+    font-size: 0.825rem;
+    color: white;
+    background-color: var(--text);
+    border-radius: 15px;
+    border: none;
+
+    button:disabled {
+      cursor: not-allowed;
+    }
+  }
+
+  .searchBar {
+    border: none;
+    color: var(--text);
+    width: 25rem;
+    padding-left: 1rem;
+  }
+
+  .searchBar:focus {
+    outline: none;
+  }
+
+  .searchBar::placeholder {
+    color: #737373;
+  } 
+}
+
+
+
+
+
+
+

@@ -6,6 +6,31 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   border: 1px solid #dbdbe2;
+
+  .productData {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .productPrice {
+    display: flex;
+    margin-left: auto;
+    align-items: center;
+    padding: 2rem;
+    font-weight: bold;
+    color: var(--text);
+
+    .originalPrice {
+      text-decoration: line-through;
+      color: #9491b8;
+    }
+
+    .salePrice {
+      padding: 5px;
+    }
+  }
 }
 
 .productFound {
@@ -36,10 +61,6 @@
   margin: 10rem;
 }
 
-.productNumber {
-  
-}
-
 .productPagination {
   margin-left: auto;
 }
@@ -51,6 +72,8 @@
 
   h1 { 
     color: var(--text);
+    font-weight: 300;
+    font-size: 2.7rem;
   }
 }
 
@@ -62,3 +85,4 @@
   display: flex;
   align-items: center;
 }
+
