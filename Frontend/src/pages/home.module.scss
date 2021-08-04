@@ -59,11 +59,34 @@
   display: flex;
   align-items: center;
   margin: 10rem;
+
+  .productPagination {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    padding: 0.6rem;
+    color: var(--text);
+    background: var(--background);
+    border-radius: 5px;
+    border: 1px solid;
+  }
+
+  .productsNumber {
+    display: flex;
+    align-items: center;
+    padding: 0.6rem;
+    color: var(--text);
+    background: var(--background);
+    border-radius: 5px;
+    border: 1px solid;
+
+    p {
+      padding-left: 0.3rem;
+    }
+  }
 }
 
-.productPagination {
-  margin-left: auto;
-}
+
 
 .searchTitleContainer {
   height: 5rem;

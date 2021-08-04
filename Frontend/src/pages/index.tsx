@@ -6,7 +6,22 @@ import { useState } from 'react';
 import { Header } from '../components/Header';
 
 interface Props {
-  products: Product[]
+  pagination: Pagination
+}
+
+interface PaginationHeader {
+  page: number,
+  nextPage?: number,
+  lastPage?: number,
+  limit: number,
+  total: number,
+  totalPage: number,
+  results: any
+}
+
+interface Pagination {
+  meta: PaginationHeader,
+  results: Product[]
 }
 
 interface Product {
@@ -40,9 +55,9 @@ export default function Home(props: Props) {
         <h1 className={styles.searchTitleContent}>{searchTitle}</h1>
       </div>
       <main className={styles.mainContainer}>
-        <span className={styles.productFound}>{`${props.products.length} PRODUTO(S) ENCONTRADO(S)`}</span>
+        <span className={styles.productFound}>{`${props.pagination.results.length} PRODUTO(S) ENCONTRADO(S)`}</span>
         <span className={styles.underline}></span>
-        {props.products.map(product => (
+        {props.pagination.results.map(product => (
           <section key={product.id} className={styles.contentContainer}>
             <div className={styles.productImages}><img className={styles.images} src={product.image} alt="Fotos dos produtos" /></div>
             <div className={styles.productData}>
@@ -51,27 +66,24 @@ export default function Home(props: Props) {
             </div>
             <div className={styles.productPrice}>
               <span className={styles.originalPrice}>{`R$${product.price}`}</span>
-              
               <span className={styles.salePrice}>{`por ${product.discount}`}</span>
             </div>
           </section>
         ))}
       </main>
       <footer className={styles.footerContainer}>
-        <span className={styles.productsNumber}> {props.products.length} produto(s) por página</span>
-        <span className={styles.productPagination}>PAGINATION</span>
+        <button className={styles.productsNumber}> {props.pagination.meta.limit} <p>produto(s) por página</p></button>
+        <button className={styles.productPagination}><p>{props.pagination.meta.page}</p></button>
       </footer>
     </>
   )
 }
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const response = await api.get<Product[]>('products');
-  console.log(response);
-
+  const response = await api.get<Pagination>('products');
   return {
     props: {
-      products: response.data
+      pagination: response.data
     }
   }
 }

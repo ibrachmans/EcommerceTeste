@@ -1,5 +1,5 @@
 import styles from './styles.module.scss';
-import React, { useState } from 'react';
+import React from 'react';
 import { MdSearch, MdClear } from "react-icons/md";
 import { useRef } from 'react';
 
