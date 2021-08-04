@@ -36,6 +36,15 @@ interface Product {
 
 export default function Home(props: Props) {
   const [searchTitle, setSearchTitle] = useState("Lista de produtos");
+  
+  const [limit, setLimit] = useState(5);
+  const getLimit = () => {
+    api.get(`products?limit=${limit}`)
+  }
+  async function getResult(limit) {
+  const result = await api.get(`products?limit=${limit}`)
+  console.log(result)
+  }
 
   const updateSearch = (text) => {
     if (text.length == 0) {
@@ -72,8 +81,14 @@ export default function Home(props: Props) {
         ))}
       </main>
       <footer className={styles.footerContainer}>
-        <button className={styles.productsNumber}> {props.pagination.meta.limit} <p>produto(s) por página</p></button>
-        <button className={styles.productPagination}><p>{props.pagination.meta.page}</p></button>
+        <select className={styles.productsNumber}>
+          <option onClick={getResult}>5 produto(s) por página</option>
+          <option>10 produto(s) por página</option>
+          <option>15 produto(s) por página</option>
+        </select>
+        <button className={styles.productPagination}>
+      
+        </button>
       </footer>
     </>
   )

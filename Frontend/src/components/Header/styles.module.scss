@@ -31,20 +31,28 @@
     color: var(--text);
   }
 
-  button {
+  .buttonContainer {
     display: flex;
-    align-self: center;
-    margin-right: 1rem;
-    font-size: 0.825rem;
-    color: white;
-    background-color: var(--text);
-    border-radius: 15px;
-    border: none;
-
-    button:disabled {
-      cursor: not-allowed;
+    align-items: center;
+    width: 30px;
+    
+    button {
+      display: flex;
+      align-self: center;
+      margin-right: 1rem;
+      font-size: 0.825rem;
+      color: white;
+      background-color: var(--text);
+      border-radius: 15px;
+      border: none;
+  
+      button:disabled {
+        cursor: not-allowed;
+      }
     }
   }
+
+  
 
   .searchBar {
     border: none;
