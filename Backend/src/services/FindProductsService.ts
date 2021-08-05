@@ -20,11 +20,9 @@ interface Pagination {
 }
 
 class FindProductService {
-  async execute({ name, page, limit }: IProductRequest) {
+  async execute({name, page, limit}: IProductRequest) {
     const productsRepository = await getCustomRepository(ProductsRepositories);
     
-    page = page ? page : 1;
-    limit = limit? limit: 10;
     const startIndex = (page - 1) * limit;
 
     const [ result, count ] = await productsRepository.findAndCount(
@@ -43,7 +41,7 @@ class FindProductService {
             lastPage: (page > 1)? page - 1 : null,
             limit: limit,
             total: count,
-            totalPage: count / limit
+            totalPage: Math.floor(count / limit)
         },
         results: result
     };

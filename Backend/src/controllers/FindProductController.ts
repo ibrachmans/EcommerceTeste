@@ -3,7 +3,10 @@ import { FindProductService } from '../services/FindProductsService';
 
 class FindProductController {
   async handle(request: Request, response: Response) {
-    const { name, page, limit } = request.body;
+    let { name = "", page = 1, limit = 5 } = request.query;
+    name = name.toString();
+    page = parseInt(page.toString());
+    limit = parseInt(limit.toString());
 
     const findProductService = new FindProductService();
 
