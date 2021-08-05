@@ -57,36 +57,36 @@ export default function Home(props: Props) {
     setSearchTitle(text.length === 0 ? "Lista de produtos" : text);
     getResult(limit, text, page);
     setName(text);
-}
+  }
 
-return (
-  <>
-    <Head>
-      <title>Desafio Ecommerce</title>
-    </Head>
-    <Header updateSearch={(text) => updateSearch(text)} />
-    <div className={styles.searchTitleContainer}>
-      <h1 className={styles.searchTitleContent}>{searchTitle}</h1>
-    </div>
-    <main className={styles.mainContainer}>
-      <span className={styles.productFound}>{`${totalProducts} PRODUTO(S) ENCONTRADO(S)`}</span>
-      <span className={styles.underline}></span>
-      {data.map(product => (
-        <section key={product.id} className={styles.contentContainer}>
-          <div className={styles.productImages}><img className={styles.images} src={product.image} alt="Fotos dos produtos" /></div>
-          <div className={styles.productData}>
-            <h3>{product.name}</h3>
-            <p>{product.category}</p>
-          </div>
-          <div className={styles.productPrice}>
-            <span className={styles.originalPrice}>{`R$${product.price}`}</span>
-            <span className={styles.salePrice}>{`por ${product.discount}`}</span>
-          </div>
-        </section>
-      ))}
-    </main>
-    <footer className={styles.footerContainer}>
-    <Select
+  return (
+    <>
+      <Head>
+        <title>Desafio Ecommerce</title>
+      </Head>
+      <Header updateSearch={(text) => updateSearch(text)} />
+      <div className={styles.searchTitleContainer}>
+        <h1 className={styles.searchTitleContent}>{searchTitle}</h1>
+      </div>
+      <main className={styles.mainContainer}>
+        <span className={styles.productFound}>{`${totalProducts} PRODUTO(S) ENCONTRADO(S)`}</span>
+        <span className={styles.underline}></span>
+        {data.map(product => (
+          <section key={product.id} className={styles.contentContainer}>
+            <div className={styles.productImages}><img className={styles.images} src={product.image} alt="Fotos dos produtos" /></div>
+            <div className={styles.productData}>
+              <h3>{product.name}</h3>
+              <p>{product.category}</p>
+            </div>
+            <div className={styles.productPrice}>
+              <span className={styles.originalPrice}>{`R$${product.price}`}</span>
+              <span className={styles.salePrice}>{`por ${product.discount}`}</span>
+            </div>
+          </section>
+        ))}
+      </main>
+      <footer className={styles.footerContainer}>
+        <Select
           className={styles.perPage}
           value={limit}
           onChange={(event) => getResult(event.target.value, name, page)}
@@ -95,18 +95,18 @@ return (
           <MenuItem value={10}>10 produtos por página</MenuItem>
           <MenuItem value={15}>15 produtos por página</MenuItem>
         </Select>
-      <div className={styles.productPagination}>
-        <Pagination 
-          count={totalPages}
-          siblingCount={1}
-          defaultPage={1}
-          onChange={(event, page) => getResult(limit, name, page)}
-          variant="outlined" 
-          shape="rounded" />      
-      </div>
-    </footer>
-  </>
-)
+        <div className={styles.productPagination}>
+          <Pagination
+            count={totalPages}
+            siblingCount={1}
+            defaultPage={1}
+            onChange={(event, page) => getResult(limit, name, page)}
+            variant="outlined"
+            shape="rounded" />
+        </div>
+      </footer>
+    </>
+  )
 }
 
 export const getServerSideProps: GetServerSideProps = async () => {
