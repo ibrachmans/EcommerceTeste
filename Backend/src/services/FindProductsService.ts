@@ -41,7 +41,7 @@ class FindProductService {
             lastPage: (page > 1)? page - 1 : null,
             limit: limit,
             total: count,
-            totalPage: Math.floor(count / limit)
+            totalPage: Math.ceil(count / limit)
         },
         results: result
     };
