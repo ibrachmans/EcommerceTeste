@@ -8,6 +8,6 @@ const createProductController = new CreateProductController();
 const findProductController = new FindProductController();
 
 router.post("/products", createProductController.handle);
-router.get("/products/findByName", findProductController.handle);
+router.get("/products", findProductController.handle);
 
 export { router }

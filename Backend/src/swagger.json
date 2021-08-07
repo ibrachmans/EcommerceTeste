@@ -64,7 +64,7 @@
         }
       }
     },
-    "products/findByName": {
+    "products": {
       "get": {
         "description": "Busca de um produto pelo nome",
         "summary": "Busca de um produto pelo nome",
