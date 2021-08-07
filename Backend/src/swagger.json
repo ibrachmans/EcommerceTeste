@@ -16,54 +16,6 @@
     }
   ],
   "paths": {
-    "/products": {
-      "post": {
-        "summary": "Cadastro de produto",
-        "description": "Rota responsável por cadastrar novos produtos",
-        "tags": ["Products"],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Product"
-              },
-              "examples": {
-                "product": {
-                  "value": {
-                    "name": "Toalha de mesa",
-                    "image": "http://example.com/image",
-                    "price": 200,
-                    "discount": 100,
-                    "category": "Mesa",
-                    "description": "Toalha de mesa bordada",
-                    "amount": 10
-                  }
-                }
-              }
-            }
-          }
-        },
-        "response": {
-          "401": {
-            "description": "Unauthorized"
-          },
-          "400": {
-            "description": "Product already exists!"
-          },
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "$ref": "#/components/schemas/Product"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "products": {
       "get": {
         "description": "Busca de um produto pelo nome",
