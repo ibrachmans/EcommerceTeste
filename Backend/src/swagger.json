@@ -25,8 +25,7 @@
           {
             "name": "name",
             "in": "query",
-            "description": "Nome do produto para busca",
-            "required": true
+            "description": "Nome do produto para busca"
           }
         ],
         "response": {
