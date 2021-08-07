@@ -2,12 +2,16 @@ import "reflect-metadata";
 import express, { Request, Response, NextFunction } from "express";
 import 'express-async-errors';
 import { pagination } from "typeorm-pagination"
+import swaggerUi from 'swagger-ui-express';
+import swaggerDocs from "./swagger.json";
 
 import { router } from "./routes";
 
 import "./database";
 
 const app = express();
+
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs))
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
